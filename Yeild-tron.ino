@@ -94,7 +94,7 @@ Adafruit_MQTT_Publish humid = Adafruit_MQTT_Publish(&mqtt, AIO_USERNAME "/feeds/
      float temp = dht.readTemperature (); 
        MQTT_connect();
      if (phval < 5.0 && !check){
-        if (!fona.sendSMS(callerIDbuffer, "PH is below 5.0: add ")) {
+        if (!fona.sendSMS(callerIDbuffer, "low PH get ammonia-N or N-P-K fertilizer")) {
           Serial.println(F("Failed"));
         } else {
           Serial.println(F("Sent!"));
@@ -104,7 +104,7 @@ Adafruit_MQTT_Publish humid = Adafruit_MQTT_Publish(&mqtt, AIO_USERNAME "/feeds/
      else if (phval >= 5.0 && check)
        check = false;
      if (phval > 7.0 && !check1){
-        if (!fona.sendSMS(callerIDbuffer, "PH is above 7.0: add ")) {
+        if (!fona.sendSMS(callerIDbuffer, "high PH get sulphur or tiger 90 soil sulphur")) {
           Serial.println(F("Failed"));
         } else {
           Serial.println(F("Sent!"));
